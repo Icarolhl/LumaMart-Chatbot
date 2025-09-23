@@ -30,7 +30,7 @@ export default function Home() {
 
       <p className="mb-6 max-w-md text-[var(--muted)]">
         Seu concierge digital para navegar pelo e-commerce da LumaMart: descubra produtos,
-        ofertas relampago e suporte em segundos, direto pelo chat.
+        ofertas relâmpago e suporte em segundos, direto pelo chat.
       </p>
 
       <div className="mb-6 flex flex-col items-center gap-4 sm:flex-row">
@@ -47,7 +47,7 @@ export default function Home() {
           rel="noopener noreferrer"
           className="rounded-xl border border-[var(--border)] bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-[var(--foreground)] shadow-md transition-colors hover:border-[var(--primary)] hover:text-[var(--primary)]"
         >
-          Ver Catalogo Online
+          Ver Catálogo Online
         </Link>
       </div>
 
