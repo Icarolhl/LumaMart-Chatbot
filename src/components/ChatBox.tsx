@@ -262,7 +262,7 @@ export default function ChatBox() {
       <Link
         href="/"
         className="absolute right-4 top-4 text-sm font-semibold uppercase tracking-wide text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-        aria-label="Voltar para a pagina inicial"
+        aria-label="Voltar para a página inicial"
       >
         X
       </Link>
@@ -297,4 +297,5 @@ export default function ChatBox() {
     </div>
   );
 }
+
 
