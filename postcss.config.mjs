@@ -1,9 +1,8 @@
-﻿import tailwindcss from "@tailwindcss/postcss";
-
-const isVitest = Boolean(process.env.VITEST);
+import tailwindcss from "@tailwindcss/postcss";
+import autoprefixer from "autoprefixer";
 
 const config = {
-  plugins: isVitest ? [tailwindcss()] : ["@tailwindcss/postcss"],
+  plugins: [tailwindcss(), autoprefixer()],
 };
 
 export default config;
