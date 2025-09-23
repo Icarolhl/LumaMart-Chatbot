@@ -42,12 +42,12 @@ export default function Home() {
         </Link>
 
         <Link
-          href="https://www.lumamart.shop"
+          href="https://github.com/Icarolhl/LumaMart-Chatbot"
           target="_blank"
           rel="noopener noreferrer"
           className="rounded-xl border border-[var(--border)] bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-[var(--foreground)] shadow-md transition-colors hover:border-[var(--primary)] hover:text-[var(--primary)]"
         >
-          Ver Catálogo Online
+          Ver Repositorio no GitHub
         </Link>
       </div>
 
@@ -57,3 +57,5 @@ export default function Home() {
     </motion.main>
   );
 }
+
+
