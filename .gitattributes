@@ -1,2 +1,24 @@
-# Auto detect text files and perform LF normalization
+# Automatically normalize text files to use consistent line endings
 * text=auto
+
+# Mark image and media files as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+*.ico binary
+*.mp3 binary
+
+# Force UTF-8 encoding and LF line endings for important text files
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.md text eol=lf
+
+# Help GitHub Linguist detect the correct project languages
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+*.json linguist-language=JSON
+*.md linguist-language=Markdown

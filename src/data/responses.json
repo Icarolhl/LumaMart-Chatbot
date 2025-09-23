@@ -1,0 +1,19 @@
+﻿{
+  "responses": {
+    "moda": ["A coleção Moda LumaMart está cheia de lançamentos com frete rápido. Veja as novidades aqui!"],
+    "tecnologia": ["Tecnologia é com a LumaMart! Notebooks, smartphones e smart home com ofertas especiais."],
+    "casa": ["Renove sua Casa & Decor com combos exclusivos da LumaMart e entrega expressa."],
+    "status do pedido": ["Para acompanhar seu pedido, faça login em Minha Conta > Pedidos ou use o link abaixo para rastrear."],
+    "trocas": ["Trocas gratuitas em até 30 dias. Solicite pelo portal de trocas e nossa equipe agenda a coleta."],
+    "pagamento": ["Aceitamos cartão, Pix e boleto. Parcelamos em até 12x sem juros em produtos selecionados."],
+    "promoções": ["Ofertas relâmpago atualizadas a cada hora! Confira os descontos ativos agora mesmo."],
+    "ajuda": ["Claro! Escolha uma opção abaixo para continuar 👇"],
+    "fallback": [
+      "Ainda não entendi. Escreva 'ajuda' para ver o que o LumaMart BOT consegue fazer.",
+      "Hmm, não encontrei isso por aqui. Digite 'ajuda' para explorar nossas opções.",
+      "Essa foi diferente! Use 'ajuda' e descubra departamentos, pagamentos e muito mais."
+    ],
+    "departamentos pergunta": ["Qual departamento você quer conhecer? Temos Moda, Tecnologia e Casa & Decor."],
+    "intro": ["Olá! Sou o LumaMart BOT. Que tal garantir as melhores ofertas hoje?"]
+  }
+}
