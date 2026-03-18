@@ -21,7 +21,9 @@ const allowMemoryFallback =
   process.env.RATE_LIMIT_ALLOW_MEMORY === "true" ||
   process.env.NODE_ENV !== "production";
 
-if ((!redisUrl || !redisToken) && !allowMemoryFallback) {
+const isBuildTime = process.env.NEXT_PHASE === "phase-production-build";
+
+if ((!redisUrl || !redisToken) && !allowMemoryFallback && !isBuildTime) {
   throw new Error(
     "UPSTASH_REDIS_REST_URL e UPSTASH_REDIS_REST_TOKEN devem estar configuradas para o rate limiting em produção."
   );

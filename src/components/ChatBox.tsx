@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -109,64 +109,64 @@ export default function ChatBox() {
     if (departmentOptions.includes(lower)) {
       const link = getSupportLink(lower);
       return [
-        { from: "bot", type: "text", text: getResponse(lower) },
-        ...(link ? [{ from: "bot", type: "link", text: "", url: link }] : []),
+        { from: "bot", type: "text", text: getResponse(lower) } as Message,
+        ...(link ? [{ from: "bot", type: "link", text: "", url: link } as Message] : []),
       ];
     }
 
     if (lower === "promoções" || lower === "promocoes") {
       const link = getSupportLink("promocoes");
       return [
-        { from: "bot", type: "text", text: getResponse("promoções") },
-        ...(link ? [{ from: "bot", type: "link", text: "", url: link }] : []),
+        { from: "bot", type: "text", text: getResponse("promoções") } as Message,
+        ...(link ? [{ from: "bot", type: "link", text: "", url: link } as Message] : []),
       ];
     }
 
     if (lower === "trocas" || lower.includes("troca")) {
       const link = getSupportLink("trocas");
       return [
-        { from: "bot", type: "text", text: getResponse("trocas") },
-        ...(link ? [{ from: "bot", type: "link", text: "", url: link }] : []),
+        { from: "bot", type: "text", text: getResponse("trocas") } as Message,
+        ...(link ? [{ from: "bot", type: "link", text: "", url: link } as Message] : []),
       ];
     }
 
     if (lower === "pagamento" || lower === "pagamentos") {
       const link = getSupportLink("pagamento");
       return [
-        { from: "bot", type: "text", text: getResponse("pagamento") },
-        ...(link ? [{ from: "bot", type: "link", text: "", url: link }] : []),
+        { from: "bot", type: "text", text: getResponse("pagamento") } as Message,
+        ...(link ? [{ from: "bot", type: "link", text: "", url: link } as Message] : []),
       ];
     }
 
     if (lower === "status do pedido" || lower.includes("status")) {
       const link = getSupportLink("status");
       return [
-        { from: "bot", type: "text", text: getResponse("status do pedido") },
-        ...(link ? [{ from: "bot", type: "link", text: "", url: link }] : []),
+        { from: "bot", type: "text", text: getResponse("status do pedido") } as Message,
+        ...(link ? [{ from: "bot", type: "link", text: "", url: link } as Message] : []),
       ];
     }
 
     if (lower.includes("depart")) {
       setSpecialMode("departamentos");
       return [
-        { from: "bot", type: "text", text: getResponse("departamentos pergunta") },
+        { from: "bot", type: "text", text: getResponse("departamentos pergunta") } as Message,
       ];
     }
 
     if (lower.includes("promo")) {
       const link = getSupportLink("promocoes");
       return [
-        { from: "bot", type: "text", text: getResponse("promoções") },
-        ...(link ? [{ from: "bot", type: "link", text: "", url: link }] : []),
+        { from: "bot", type: "text", text: getResponse("promoções") } as Message,
+        ...(link ? [{ from: "bot", type: "link", text: "", url: link } as Message] : []),
       ];
     }
 
     if (lower.includes("ajuda")) {
       setShowHelpOptions(true);
-      return [{ from: "bot", type: "text", text: getResponse("ajuda") }];
+      return [{ from: "bot", type: "text", text: getResponse("ajuda") } as Message];
     }
 
-    return [{ from: "bot", type: "text", text: getResponse("fallback") }];
+    return [{ from: "bot", type: "text", text: getResponse("fallback") } as Message];
   };
 
   const queueBotMessages = (messagesToAdd: Message[]) => {
