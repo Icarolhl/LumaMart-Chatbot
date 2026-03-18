@@ -1,6 +1,7 @@
-﻿import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { POST } from "../src/app/api/chat/route";
 import { resetGuardsForTests } from "@/lib/chatGuards";
+import { NextRequest } from "next/server";
 
 const originalFetch = globalThis.fetch;
 
@@ -40,9 +41,9 @@ describe("POST /api/chat", () => {
           {
             status: 200,
             headers: { "content-type": "application/json" },
-          }
-        )
-      )
+          },
+        ),
+      ),
     );
 
     // @ts-expect-error override para teste
@@ -57,10 +58,10 @@ describe("POST /api/chat", () => {
       },
       {
         "x-forwarded-for": "10.0.0.1",
-      }
+      },
     );
 
-    const res = await POST(req as any);
+    const res = await POST(req as unknown as NextRequest);
     expect(res.status).toBe(200);
     const payload = await res.json();
     expect(payload).toEqual({ reply: "Olá! Como posso ajudar?" });
@@ -78,7 +79,7 @@ describe("POST /api/chat", () => {
       messages: [{ role: "user", content: longText }],
     });
 
-    const res = await POST(req as any);
+    const res = await POST(req as unknown as NextRequest);
     expect(res.status).toBe(400);
     expect(fetchSpy).not.toHaveBeenCalled();
   });
@@ -90,9 +91,9 @@ describe("POST /api/chat", () => {
           JSON.stringify({
             choices: [{ message: { content: "Tudo certo!" } }],
           }),
-          { status: 200, headers: { "content-type": "application/json" } }
-        )
-      )
+          { status: 200, headers: { "content-type": "application/json" } },
+        ),
+      ),
     );
 
     // @ts-expect-error override para teste
@@ -104,8 +105,8 @@ describe("POST /api/chat", () => {
       const res = await POST(
         buildRequest(
           { messages: [{ role: "user", content: `ping-${i}` }] },
-          headers
-        ) as any
+          headers,
+        ) as unknown as NextRequest,
       );
       expect(res.status).toBe(200);
     }
@@ -113,17 +114,19 @@ describe("POST /api/chat", () => {
     const limitedResponse = await POST(
       buildRequest(
         { messages: [{ role: "user", content: "ping-ultimate" }] },
-        headers
-      ) as any
+        headers,
+      ) as unknown as NextRequest,
     );
 
     expect(limitedResponse.status).toBe(429);
   });
 
   it("abre circuito após falhas consecutivas e responde 503", async () => {
-    const failingFetch = vi.fn().mockImplementation(() =>
-      Promise.resolve(new Response("erro", { status: 502 }))
-    );
+    const failingFetch = vi
+      .fn()
+      .mockImplementation(() =>
+        Promise.resolve(new Response("erro", { status: 502 })),
+      );
 
     // @ts-expect-error override para teste
     globalThis.fetch = failingFetch;
@@ -134,8 +137,8 @@ describe("POST /api/chat", () => {
       const res = await POST(
         buildRequest(
           { messages: [{ role: "user", content: `fail-${i}` }] },
-          headers
-        ) as any
+          headers,
+        ) as unknown as NextRequest,
       );
       expect(res.status).toBe(502);
     }
@@ -145,8 +148,8 @@ describe("POST /api/chat", () => {
     const circuitResponse = await POST(
       buildRequest(
         { messages: [{ role: "user", content: "should-block" }] },
-        headers
-      ) as any
+        headers,
+      ) as unknown as NextRequest,
     );
 
     expect(circuitResponse.status).toBe(503);
